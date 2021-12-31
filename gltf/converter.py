@@ -1669,7 +1669,7 @@ class Converter():
                     exp = 8 / 3
                     node.exponent = 2 * (math.pi * 0.5 / outer) ** exp
         else:
-            if ltype == 'unsupported':
+            if ltype == 'unsupported' or ltype == 'ambient':
                 lightprops = {}
             else:
                 lightprops = gltf_light[ltype]
@@ -1850,7 +1850,7 @@ def read_glb_chunk(glb_file):
     return chunk_type, chunk_data
 
 
-def convert(src, dst, settings=None):
+def  convert(src, dst, settings=None):
     if settings is None:
         settings = GltfSettings()
 
